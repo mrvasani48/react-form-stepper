@@ -1,4 +1,3 @@
-import React from 'react';
 import { Icon } from '@iconify/react';
 import { DateTimePicker } from '@mantine/dates';
 import { Controller, useFormContext } from 'react-hook-form';

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Checkbox, Group } from '@mantine/core';
 import { Controller, useFormContext } from 'react-hook-form';
 
@@ -18,15 +17,15 @@ const CheckboxInput = ({
     <Controller
       control={control}
       name={name}
-      render={({ field: { onChange, value, ref } }) => (
-        <div>
-          <label>{label}</label>
+      render={({ field: { onChange, value } }) => (
+        <div className='flex flex-col gap-2'>
+          <label >{label}</label>
           <Checkbox.Group
             value={value || []}
             onChange={onChange}
             {...props}
           >
-            <Group mt="xs">
+            <Group mt="xs" gap={20}>
               {options.map(option => (
                 <Checkbox
                   key={option.value}

@@ -1,41 +1,28 @@
-import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import { FormProvider, useForm } from 'react-hook-form';
 import { Button } from '@mantine/core';
 import TextInput from '../common/TextInput';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { SET_NEXT_STEP, SET_PERSONAL_INFO } from '../../redux/reducers/auth.reducer';
+import { SET_NEXT_STEP, SET_PERSONAL_INFO } from '../../redux/reducers/emp.reducer';
 import { useEffect } from 'react';
+import { PersonalInfoSchema } from '../../Schema/formSchema';
+import { personalInfoInitialState, statesList } from '../../utils/constant';
+import SelectInput from '../common/SelectInput';
 
 
-export const initialValuesSchema = {
-  firstName: '',
-  lastName: '',
-  email: '',
-  companyName: '',
-  companyWebsite: '',
-  state: '',
-  zipCode: ''
-};
-const PersonalInfoSchema = Yup.object().shape({
-  firstName: Yup.string().required('First Name is required'),
-  lastName: Yup.string().required('Last Name is required'),
-  email: Yup.string().email('Invalid email').required('Email is required'),
-  companyName: Yup.string().required('Company Name is required'),
-  zipCode: Yup.string().required('Zip Code is required').max(6, 'Maximum 6 chareacter alllowed'),
-});
+
 const PersonalInfoForm = () => {
   const dispatch = useDispatch();
-  const { personalInfo } = useSelector(store => store.auth)
+  const { personalInfo } = useSelector(store => store.emp)
 
   const methods = useForm({
     mode: 'onBlur',
-    initialValues: personalInfo ?? initialValuesSchema,
+    initialValues: personalInfo ?? personalInfoInitialState,
     resolver: yupResolver(PersonalInfoSchema)
   });
   const { handleSubmit, reset } = methods;
 
-  const { current_step } = useSelector(store => store.auth);
+  const { current_step } = useSelector(store => store.emp);
   const onSubmit = (values) => {
     dispatch(SET_PERSONAL_INFO(values));
     dispatch(SET_NEXT_STEP(current_step < 3 ? current_step + 1 : current_step))
@@ -45,41 +32,54 @@ const PersonalInfoForm = () => {
       reset(personalInfo)
     }
   }, [personalInfo])
+
   return (
     <FormProvider {...methods}>
-      <form onSubmit={handleSubmit(onSubmit)} className='m-5'>
+      <form onSubmit={handleSubmit(onSubmit)} className='my-5 '>
         <div className='grid grid-cols-1 gap-5 '>
           <TextInput
-            type="text"
             name="firstName"
-            label="firstName"
+            label="First Name"
+            placeholder='Enter First Name'
             props={{
               withAsterisk: true
             }} />
           <TextInput
-            type="text"
             name="lastName"
-            label="lastName"
+            label="Last name"
+            placeholder='Enter Last Name'
             props={{
               withAsterisk: true
             }} />
           <TextInput
             type="email"
             name="email"
-            label="email"
-            props={{
-              withAsterisk: true
-            }} />  <TextInput
-            type="text"
-            name="companyName"
-            label="companyName"
+            label="Email"
+            placeholder='Enter Email'
             props={{
               withAsterisk: true
             }} />
           <TextInput
-            type="text"
+            name="companyName"
+            label="Company Name"
+            placeholder='Enter Company Name'
+            props={{
+              withAsterisk: true
+            }} />
+          <TextInput
+            name="companyWebsite"
+            label="Company Website"
+            placeholder='Enter Company Website'
+            props={{
+              withAsterisk: true
+            }}
+          />
+          <SelectInput name='state' label='State' placeholder='Select State' data={statesList} />
+
+          <TextInput
             name="zipCode"
-            label="zipCode"
+            label="Zip Code"
+            placeholder='Enter Zip Code'
             props={{
               withAsterisk: true
             }} />

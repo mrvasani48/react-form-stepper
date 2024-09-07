@@ -1,11 +1,12 @@
+import { Container } from "@mantine/core"
 import Stepper from "../component/dashboards/Stepper"
 
 const DashboardsPage = () => {
 
   return (
-    <div> 
+    <Container size="lg" > 
       <Stepper />
-    </div>
+    </Container>
   )
 }
 

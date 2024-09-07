@@ -13,3 +13,9 @@
 .error{
   color:rgb(250, 82, 82)
 }
+.app-Stepper-step{
+  gap: 10px;
+}
+.app-Checkbox-label{
+  padding-left: 10px;
+}

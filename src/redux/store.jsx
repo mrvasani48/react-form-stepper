@@ -1,7 +1,7 @@
 // src/store.js
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { api } from '../service/api';
-import authReducer from './reducers/auth.reducer';
+import empReducer from './reducers/emp.reducer';
 import persistStore from 'redux-persist/es/persistStore';
 import persistReducer from 'redux-persist/es/persistReducer';
 import storage from 'redux-persist/lib/storage'; // Default to localStorage for web
@@ -20,7 +20,7 @@ const encryptor = encryptTransform({
 
 // Combine your reducers into a rootReducer
 const rootReducer = combineReducers({
-  auth: authReducer,
+  emp: empReducer,
   [api.reducerPath]: api.reducer,
 });
 
@@ -28,7 +28,7 @@ const rootReducer = combineReducers({
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['auth'], // Specify which reducers you want to persist
+  whitelist: ['emp'], // Specify which reducers you want to persist
   transforms: [encryptor],
 };
 

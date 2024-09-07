@@ -35,10 +35,9 @@ const RadioGroupInput = ({
 							key={value}
 						>
 							<div
-								className={'flex flex-row gap-3'
-								}
+								className={'flex flex-row gap-3 pt-2'}
 							>
-								{options.map((option, i) => {
+								{options?.map((option, i) => {
 									return (
 										<Group
 											mt="xs"

@@ -1,30 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { companyDetailsInitialState, personalInfoInitialState, planDetailsInitialValue } from "../../utils/constant";
+
 const initialState = {
-    current_step: 0,
-    personalInfo: {
-        firstName: '',
-        lastName: '',
-        email: '',
-        companyName: '',
-        companyWebsite: '',
-        state: '',
-        zipCode: ''
-    },
-    companyDetails: {
-        working: [],
-        employeeSize: '',
-        wfhPolicy: 'true',
-    },
-    planDetails: {
-        startDate: '',
-        plans: '',
-        prices: true,
-        users: 1,
-        finale_price: ''
-    }
+    current_step:0,
+    personalInfo: personalInfoInitialState,
+    companyDetails: companyDetailsInitialState,
+    planDetails: planDetailsInitialValue
 }
-const authSlice = createSlice({
-    name: 'auth',
+const empDetailsSlice = createSlice({
+    name: 'emp',
     initialState: initialState,
     reducers: {
         SET_NEXT_STEP: (state, action) => {
@@ -46,6 +30,6 @@ const authSlice = createSlice({
     }
 })
 
-export const { SET_NEXT_STEP, SET_PREV_STEP, SET_PERSONAL_INFO, SET_COMPANY_DETAILS, SET_PLANE_DETAILS, RESET_STORE } = authSlice.actions;
+export const { SET_NEXT_STEP, SET_PREV_STEP, SET_PERSONAL_INFO, SET_COMPANY_DETAILS, SET_PLANE_DETAILS, RESET_STORE } = empDetailsSlice.actions;
 
-export default authSlice.reducer;
+export default empDetailsSlice.reducer;
