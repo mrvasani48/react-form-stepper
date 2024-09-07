@@ -31,7 +31,7 @@ export const companyDetailsInitialState = {
 export const planDetailsInitialValue = {
     startDate: '',
     plans: '',
-    prices: true,
+    prices: 0,
     users: 1,
     finale_price: ''
 }
