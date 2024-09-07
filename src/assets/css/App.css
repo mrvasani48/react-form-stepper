@@ -19,3 +19,17 @@
 .app-Checkbox-label{
   padding-left: 10px;
 }
+
+.app-Stepper-content {
+  background: #f7f7f7;
+  box-shadow: 0px 10px 29px -1px gray;
+  padding: 50px;
+  margin-top: 18px;
+  border-radius: 11px;
+}
+  
+.app-Stepper-steps{
+  box-shadow: 0px 0px 18px 3px #a6a6a6;
+  padding: 25px;
+  border-radius: 11px;
+}
