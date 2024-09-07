@@ -7,7 +7,6 @@
 4. [Installation](#installation)
 5. [Available Scripts](#available-scripts)
 6. [Live Demo](#live-demo)
-7. [Task Details](#task-details)
 
 ## Project Overview
 
