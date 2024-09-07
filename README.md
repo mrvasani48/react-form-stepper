@@ -1,4 +1,4 @@
-# React form stepper
+# React Form Stepper
 
 ## Table of Contents
 1. [Project Overview](#project-overview)
@@ -6,12 +6,11 @@
 3. [Project Structure](#project-structure)
 4. [Installation](#installation)
 5. [Available Scripts](#available-scripts)
-6. [Contributing](#contributing)
-7. [License](#license)
+6. [Live Demo](#live-demo)
 
 ## Project Overview
 
-This project is built with modern web technologies to ensure fast development and responsive design. The application integrates Mantine for UI components, Tailwind CSS for utility-first styling, Redux Toolkit for state management, and React Router DOM for navigation.
+This project is built with modern web technologies to ensure fast development and responsive design. The application integrates Mantine for UI components, Tailwind CSS for utility-first styling, Redux Toolkit for state management, and React Router DOM for navigation. The application features a multi-step form (Stepper) with Redux integration and field validation.
 
 ---
 
@@ -108,16 +107,9 @@ Builds the app for production in the `dist` folder. It optimizes the build for b
 ### `npm run preview`
 Locally preview the production build.
 
----
 
-## Contributing
+## Live Demo
 
-Feel free to submit pull requests to contribute to this project. Please adhere to the [Code of Conduct](./CONTRIBUTING.md) and use ESLint for code formatting.
+You can view a live demo of the project at [https://react-form-stepper-mu.vercel.app/](https://react-form-stepper-mu.vercel.app/).
 
----
 
-## License
-
-This project is licensed under the MIT License.
-
----
